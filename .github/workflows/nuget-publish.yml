@@ -41,18 +41,8 @@ jobs:
         name: build-artifacts-${{ matrix.configuration }}-${{ matrix.platform }}
         path: |
           ${{ matrix.platform }}/${{ matrix.configuration }}/api/pict.lib
-        retention-days: 1
-        
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      if: matrix.configuration == 'Release'
-      with:
-        name: build-artifacts-${{ matrix.configuration }}-${{ matrix.platform }}
-        path: |
           ${{ matrix.platform }}/${{ matrix.configuration }}/cli/*.exe
-          ${{ matrix.platform }}/${{ matrix.configuration }}/cli/*.dll
           ${{ matrix.platform }}/${{ matrix.configuration }}/cli/*.pdb
-          ${{ matrix.platform }}/${{ matrix.configuration }}/clidll/*.exe
           ${{ matrix.platform }}/${{ matrix.configuration }}/clidll/*.dll
           ${{ matrix.platform }}/${{ matrix.configuration }}/clidll/*.pdb
         retention-days: 1
