@@ -40,11 +40,11 @@ jobs:
       with:
         name: build-artifacts-${{ matrix.configuration }}-${{ matrix.platform }}
         path: |
-          ${{ matrix.platform }}/${{ matrix.configuration }}/api/pict.lib
-          ${{ matrix.platform }}/${{ matrix.configuration }}/cli/*.exe
-          ${{ matrix.platform }}/${{ matrix.configuration }}/cli/*.pdb
-          ${{ matrix.platform }}/${{ matrix.configuration }}/clidll/*.dll
-          ${{ matrix.platform }}/${{ matrix.configuration }}/clidll/*.pdb
+          ${{ matrix.platform == 'x86' && 'Win32' || matrix.platform }}/${{ matrix.configuration }}/api/pict.lib
+          ${{ matrix.platform == 'x86' && 'Win32' || matrix.platform }}/${{ matrix.configuration }}/cli/*.exe
+          ${{ matrix.platform == 'x86' && 'Win32' || matrix.platform }}/${{ matrix.configuration }}/cli/*.pdb
+          ${{ matrix.platform == 'x86' && 'Win32' || matrix.platform }}/${{ matrix.configuration }}/clidll/*.dll
+          ${{ matrix.platform == 'x86' && 'Win32' || matrix.platform }}/${{ matrix.configuration }}/clidll/*.pdb
         retention-days: 1
 
   package:
