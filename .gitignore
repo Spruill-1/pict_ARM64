@@ -27,3 +27,5 @@ build
 /*/Win32/*
 /*/x64/*
 .vscode/settings.json
+.config/zellij.kdl
+go
